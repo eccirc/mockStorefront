@@ -1,8 +1,13 @@
 {
       "Product": {
-              "title": { "string": [ "Jumper", "Shirt", "Dress", "Jeans" ] },
+              "title": { "string": [ "{ 'Jumper' : 'https://source.unsplash.com/ujM15VLBAz0' ", "Shirt", "Dress", "Jeans" ] },
               "productCode": {"int": { "min": 0, "max": 1000000 }},
-              "imageSrc": { "string": ["https://source.unsplash.com/ujM15VLBAz0", "https://source.unsplash.com/itUsEU7GgDU","https://unsplash.com/photos/kS3YkVtf85U","https://source.unsplash.com/m1m2EZOZVwA"] },
+              "imageSrc": { "string": [ 
+                                        "https://source.unsplash.com/ujM15VLBAz0",
+                                        "https://source.unsplash.com/itUsEU7GgDU",
+                                        "https://source.unsplash.com/kS3YkVtf85U",
+                                        "https://source.unsplash.com/m1m2EZOZVwA"] 
+                                    },
               "S": { "int": { "min": 0, "max": 1000 }},
               "M": {"int": { "min": 0, "max": 1000 }},
               "L": {"int": { "min": 0, "max": 1000 }}, 
