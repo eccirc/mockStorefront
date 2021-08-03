@@ -3,9 +3,10 @@
               "title": { "string": [ "Jumper", "Shirt", "Dress", "Jeans" ] },
               "productCode": {"int": { "min": 0, "max": 1000000 }},
               "imageSrc": { "string": {} },
-              "sizes": {      "hasMany": "Size"    }
-              },
-      "Size": {    "body": { "string": ["S","M", "L", "XL"] },
-                    "quantity" : {"int": { "min": 0, "max": 1000000 }},
-                        "size": {      "belongsTo": "Product"    }  }
+              "sizes": {
+                   "size": { "string": [ "S", "M", "L", "XL" ] },
+                   "quantity": {"int": { "min": 0, "max": 100 }}
+                }
+              }
+      
 }
