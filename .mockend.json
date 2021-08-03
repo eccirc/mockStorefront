@@ -7,5 +7,5 @@
               },
       "Size": {    "body": { "string": ["S","M", "L", "XL"] },
                     "quantity" : {"int": { "min": 0, "max": 1000000 }},
-                        "post": {      "belongsTo": "Post"    }  }
+                        "size": {      "belongsTo": "Product"    }  }
 }
