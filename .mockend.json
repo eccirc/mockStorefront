@@ -1,6 +1,6 @@
 {
       "Product": {
-              "title": { "string": [ "{ 'Jumper' : 'https://source.unsplash.com/ujM15VLBAz0' ", "Shirt", "Dress", "Jeans" ] },
+              "title": { "string": [ "{ 'Jumper' : 'https://source.unsplash.com/ujM15VLBAz0' }", "Shirt", "Dress", "Jeans" ] },
               "productCode": {"int": { "min": 0, "max": 1000000 }},
               "imageSrc": { "string": [ 
                                         "https://source.unsplash.com/ujM15VLBAz0",
