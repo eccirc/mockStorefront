@@ -1,4 +1,4 @@
-{
+{"All":{
       "Product": {
               "title": { "string": [ "Jumper", "Shirt", "Dress", "Jeans" ] },
               "productCode": {"int": { "min": 0, "max": 1000000 }},
@@ -12,11 +12,12 @@
               "M": {"int": { "min": 0, "max": 1000 }},
               "L": {"int": { "min": 0, "max": 1000 }}, 
               "XL": {"int": { "min": 0, "max": 1000 }},
-              "sizes" : "Size[]"
+              "sizes" : { "hasMant": "Size" }
       },
       "Size": {
           "sizes": {"string" : ["s", "m", "l", "xl"]},
-          "productSize": "Post"
+          "productSize": {"belongsTo": "Product" }
       }
               
+}
 }
