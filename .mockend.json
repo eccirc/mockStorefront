@@ -12,9 +12,11 @@
               "M": {"int": { "min": 0, "max": 1000 }},
               "L": {"int": { "min": 0, "max": 1000 }}, 
               "XL": {"int": { "min": 0, "max": 1000 }},
-              "Size" : {
-                  "sizes" : { "string": ["S","M","L","XL"]}
-               }
+              "sizes" : { "hasMany": "Size"}
+      },
+      "Size": {
+          "sizes": {"string" : ["s", "m", "l", "xl"]},
+          "belongsTo": "Product"
       }
               
 }
