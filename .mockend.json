@@ -16,7 +16,7 @@
       },
       "Size": {
           "sizes": {"string" : ["s", "m", "l", "xl"]},
-          "belongsTo": "Product"
+          "productSize": {"belongsTo": "Product" }
       }
               
 }
