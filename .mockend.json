@@ -12,7 +12,9 @@
               "M": {"int": { "min": 0, "max": 1000 }},
               "L": {"int": { "min": 0, "max": 1000 }}, 
               "XL": {"int": { "min": 0, "max": 1000 }},
-              "size" : { "hasMany" : "Sizes" }
+              "Size" : {
+                  "sizes" : { "string": ["S","M","L","XL"]}
+               }
       }
               
 }
