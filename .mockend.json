@@ -15,7 +15,7 @@
               "sizes" : { "hasMany": "Size" }
       },
       "Size": {
-          "sizes": {"string" : ["s", "m", "l", "xl"]},
+          "type": {"string" : ["s", "m", "l", "xl"]},
           "productSize": {"belongsTo": "Product" }
       }
               
