@@ -1,0 +1,15 @@
+{
+    "Products": {
+        "Product":
+         {   "title": { "string": {} },
+             "id": { "int": { "min": 0, "max": 1000000 } } ,
+             "sizes": {    "string": ["S","M","L","XL"]  },
+             "imageSrc": { "string": {}},  
+             "quantityS": { "int": { "min": 0, "max": 1000000 } } ,
+             "quantityM": { "int": { "min": 0, "max": 1000000 } } ,
+             "quantityL": { "int": { "min": 0, "max": 1000000 } } ,
+             "quantityXL": { "int": { "min": 0, "max": 1000000 } }
+        }
+
+    }
+}
