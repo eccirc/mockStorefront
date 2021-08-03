@@ -1,5 +1,5 @@
 {
-      "Product": {
+      "Products": {
               "title": { "string": [ "Jumper", "Shirt", "Dress", "Jeans" ] },
               "productCode": {"int": { "min": 0, "max": 1000000 }},
               "imageSrc": { "string": [ 
@@ -11,12 +11,10 @@
               "S": { "int": { "min": 0, "max": 1000 }},
               "M": {"int": { "min": 0, "max": 1000 }},
               "L": {"int": { "min": 0, "max": 1000 }}, 
-              "XL": {"int": { "min": 0, "max": 1000 }},
-              "sizes" : { "hasMany": "Size" }
-      },
-      "Size": {
-          "type": {"string" : ["s", "m", "l", "xl"]},
-          "productSize": {"belongsTo": "Product" }
+              "XL": {"int": { "min": 0, "max": 1000 }}
+              
       }
+     
+     
               
 }
