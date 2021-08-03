@@ -1,5 +1,5 @@
 {
-      "Post": {
+      "Product": {
               "title": { "string": [ "Jumper", "Shirt", "Dress", "Jeans" ] },
               "productCode": {"int": { "min": 0, "max": 1000000 }},
               "imageSrc": { "string": {} },
