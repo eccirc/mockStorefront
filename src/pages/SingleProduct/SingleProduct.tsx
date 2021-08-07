@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Product } from '../../types/Product';
 import { useParams } from 'react-router';
-import MasterStore from '../../components/StoreHook/allProductsStore';
+import MasterStore from '../../components/storeApi/allProductsStore';
 import { observer } from 'mobx-react-lite';
 
 interface Props {

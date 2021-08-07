@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 
@@ -7,7 +7,7 @@ import Products from './pages/Products/Products';
 import About from './pages/About/About';
 import ProductDetail from './pages/SingleProduct/SingleProduct';
 import Cart from './pages/CartContent/CartContent';
-import MasterStore from './components/StoreHook/allProductsStore';
+import MasterStore from './components/storeApi/allProductsStore';
 import { observer } from 'mobx-react-lite';
 
 const App: React.FC = () => {

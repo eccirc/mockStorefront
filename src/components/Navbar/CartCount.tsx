@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React, { useContext } from 'react';
-import MasterStore from '../StoreHook/allProductsStore';
+import MasterStore from '../storeApi/allProductsStore';
 
 const CartCount = () => {
     const store = useContext(MasterStore);

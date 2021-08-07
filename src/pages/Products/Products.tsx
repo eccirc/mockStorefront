@@ -1,4 +1,3 @@
-import { number } from 'mobx-state-tree/dist/internal';
 import React from 'react';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import { Product } from '../../types/Product';
