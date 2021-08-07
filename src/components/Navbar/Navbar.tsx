@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CartLogo from '../../Logos/cart.png';
-
-// import { Provider } from 'mobx-react';
-// import CartStore from '../Cart/cartStore';
-import ViewCart from '../Cart/ViewCart';
+import CartCount from './CartCount';
 
 const Navbar: React.FC = () => {
     const [showMenu, setShowMenu] = useState(false);
@@ -57,10 +54,10 @@ const Navbar: React.FC = () => {
                     </li>
                 </ul>
 
-                <ViewCart></ViewCart>
-
                 <Link to="/Cart" className="flex flex-row justify-center items-center pr-4">
-                    <p className="text-center mr-4">Cart</p>
+                    <p className="text-center mr-4">
+                        Cart <CartCount />{' '}
+                    </p>
 
                     <img className="w-10 h-10 object-contain " src={CartLogo} alt="Your Cart" />
                 </Link>

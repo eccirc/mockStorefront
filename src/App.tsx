@@ -1,4 +1,4 @@
-import React, { lazy, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 
@@ -7,15 +7,13 @@ import Products from './pages/Products/Products';
 import About from './pages/About/About';
 import ProductDetail from './pages/SingleProduct/SingleProduct';
 import Cart from './pages/CartContent/CartContent';
-
-//const Home = lazy(() => import('./pages/Home/Home'));
+import MasterStore from './components/StoreHook/allProductsStore';
+import { observer } from 'mobx-react-lite';
 
 const App: React.FC = () => {
-    const [count, setCount] = useState(0);
+    const store = useContext(MasterStore);
 
-    const increment = () => {
-        setCount(count + 1);
-    };
+    console.log(store.status);
 
     return (
         <Router>
@@ -27,13 +25,13 @@ const App: React.FC = () => {
                             <Home></Home>
                         </Route>
                         <Route path="/Products">
-                            <Products />
+                            <Products products={store.product} status={store.status} />
                         </Route>
                         <Route path="/About">
                             <About />
                         </Route>
-                        <Route path="/SingleProduct">
-                            <ProductDetail />
+                        <Route path="/SingleProduct/:id">
+                            {store.status === 'loaded' && <ProductDetail product={store.product} />}
                         </Route>
                         <Route path="/Cart">
                             <Cart />
@@ -52,4 +50,4 @@ const App: React.FC = () => {
     );
 };
 
-export default App;
+export default observer(App);

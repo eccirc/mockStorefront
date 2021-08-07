@@ -1,21 +1,35 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { Product } from '../../types/Product';
+import { useParams } from 'react-router';
+import MasterStore from '../../components/StoreHook/allProductsStore';
+import { observer } from 'mobx-react-lite';
 
-const ProductDetail: React.FC = () => {
+interface Props {
+    product: Product[];
+    // addTo(product: Product): void;
+}
+
+const ProductDetail: React.FC<Props> = ({ product }) => {
+    const store = useContext(MasterStore);
+
     const sizes = ['S', 'M', 'L', 'XL'];
+
+    type productParams = {
+        id: string;
+    };
+
+    const { id } = useParams<productParams>();
+    const cast: number = +id;
 
     return (
         <div className="w-full mx-auto bg-white pt-4 px-4 pb-16 grid grid-cols-1  md:grid-cols-2 gap-8">
             <span>
-                <img
-                    className=" object-scale-down  w-3/5 mx-auto"
-                    src="https://source.unsplash.com/tWOz2_EK5EQ"
-                    alt="random jumper"
-                />
+                <img className=" object-scale-down  w-3/5 mx-auto" src={product[cast - 1].itemSrc} alt="random image" />
             </span>
             <span className=" px-8 heading">
                 <span className="font-bold text-2xl flex justify-between mb-4">
-                    <p>Name of Item</p>
-                    <p>£20</p>{' '}
+                    <p>{product[cast - 1].itemName}</p>
+                    <p>{product[cast - 1].itemPrice}</p>
                 </span>
                 <p className="font-normal">
                     Chia portland swag farm-to-table vice mlkshk stumptown chartreuse activated charcoal PBR&B gochujang
@@ -31,7 +45,10 @@ const ProductDetail: React.FC = () => {
                         </p>
                     ))}
                 </span>
-                <button className="rounded-md bg-yellow-600 text-center text-white w-full p-2 text-lg">
+                <button
+                    onClick={() => store.addToCart(product[cast - 1])}
+                    className="rounded-md bg-yellow-600 text-center text-white w-full p-2 text-lg"
+                >
                     Add to Basket
                 </button>
             </span>
@@ -39,4 +56,4 @@ const ProductDetail: React.FC = () => {
     );
 };
 
-export default ProductDetail;
+export default observer(ProductDetail);

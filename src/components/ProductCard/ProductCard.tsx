@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Product } from '../../types/Product';
 
-const ProductCard: React.FC = () => {
+const ProductCard: React.FC<Product> = ({ itemName, itemPrice, itemSrc, id }) => {
     return (
-        <Link to="/SingleProduct" className="rounded border hover:shadow-md w-full h-80 bg-white">
+        <Link to={`/SingleProduct/${id}`} className="rounded border hover:shadow-md w-full h-80 bg-white">
             <div className="w-full">
-                <img src="https://source.unsplash.com/ujM15VLBAz0" alt="product" className="h-48 w-full object-cover" />
+                <img src={itemSrc} alt="product" className="h-48 w-full object-cover" />
                 <span className="p-2 heading flex flex-row justify-between">
-                    <p className="font-normal">item name</p>
-                    <p className="font-bold">£20</p>
+                    <p className="font-normal">{itemName}</p>
+                    <p className="font-bold">{itemPrice}</p>
                 </span>
             </div>
         </Link>
