@@ -31,7 +31,6 @@ class MasterStore {
     };
 
     @computed get cartSize() {
-        console.log('from computed');
         return this.cart.length;
     }
 

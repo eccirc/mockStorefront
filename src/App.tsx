@@ -7,14 +7,11 @@ import Products from './pages/Products/Products';
 import About from './pages/About/About';
 import ProductDetail from './pages/SingleProduct/SingleProduct';
 import Cart from './pages/CartContent/CartContent';
-import MasterStore from './components/storeApi/allProductsStore';
+import ProductStoreState from './components/storeApi/storeState';
 import { observer } from 'mobx-react-lite';
 
 const App: React.FC = () => {
-    const store = useContext(MasterStore);
-
-    console.log(store.status);
-
+    const Store = useContext(ProductStoreState);
     return (
         <Router>
             <div className="bg-gray-50 min-h-screen">
@@ -25,14 +22,14 @@ const App: React.FC = () => {
                             <Home></Home>
                         </Route>
                         <Route path="/Products">
-                            <Products products={store.product} status={store.status} />
+                            {Store.result.status === 'loaded' && (
+                                <Products products={Store.result.payload} status={Store.result.status} />
+                            )}
                         </Route>
                         <Route path="/About">
                             <About />
                         </Route>
-                        <Route path="/SingleProduct/:id">
-                            {store.status === 'loaded' && <ProductDetail product={store.product} />}
-                        </Route>
+                        <Route path="/SingleProduct/:id">{Store.result.status === 'loaded' && <ProductDetail />}</Route>
                         <Route path="/Cart">
                             <Cart />
                         </Route>

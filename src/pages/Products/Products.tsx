@@ -27,9 +27,7 @@ const Products: React.FC<Props> = ({ products, status }) => {
                 </div>
             )}
             {status === 'error' && (
-                <div className="w-full min-h-screen mx-auto bg-white heading">
-                    Error - we couldn&apos;t load the products!{' '}
-                </div>
+                <div className="w-full min-h-screen mx-auto bg-white heading">Error loading products! </div>
             )}
         </div>
     );

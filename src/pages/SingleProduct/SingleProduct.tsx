@@ -1,16 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Product } from '../../types/Product';
 import { useParams } from 'react-router';
-import MasterStore from '../../components/storeApi/allProductsStore';
+import ProductStoreState from '../../components/storeApi/storeState';
 import { observer } from 'mobx-react-lite';
 
-interface Props {
-    product: Product[];
-    // addTo(product: Product): void;
-}
-
-const ProductDetail: React.FC<Props> = ({ product }) => {
-    const store = useContext(MasterStore);
+const ProductDetail: React.FC = () => {
+    const store = useContext(ProductStoreState);
 
     const sizes = ['S', 'M', 'L', 'XL'];
 
@@ -24,12 +19,16 @@ const ProductDetail: React.FC<Props> = ({ product }) => {
     return (
         <div className="w-full mx-auto bg-white pt-4 px-4 pb-16 grid grid-cols-1  md:grid-cols-2 gap-8">
             <span>
-                <img className=" object-scale-down  w-3/5 mx-auto" src={product[cast - 1].itemSrc} alt="random image" />
+                <img
+                    className=" object-scale-down  w-3/5 mx-auto"
+                    src={store.currentProduct.itemSrc}
+                    alt="random image"
+                />
             </span>
             <span className=" px-8 heading">
                 <span className="font-bold text-2xl flex justify-between mb-4">
-                    <p>{product[cast - 1].itemName}</p>
-                    <p>{product[cast - 1].itemPrice}</p>
+                    <p>{store.currentProduct.itemName}</p>
+                    <p>{store.currentProduct.itemPrice}</p>
                 </span>
                 <p className="font-normal">
                     Chia portland swag farm-to-table vice mlkshk stumptown chartreuse activated charcoal PBR&B gochujang
@@ -46,10 +45,10 @@ const ProductDetail: React.FC<Props> = ({ product }) => {
                     ))}
                 </span>
                 <button
-                    onClick={() => store.addToCart(product[cast - 1])}
+                    onClick={() => store.addToCart(store.currentProduct)}
                     className="rounded-md bg-yellow-600 text-center text-white w-full p-2 text-lg"
                 >
-                    Add to Basket
+                    {store.cart.includes(store.currentProduct) ? 'Add another?' : 'Add to cart'}
                 </button>
             </span>
         </div>
