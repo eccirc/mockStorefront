@@ -14,9 +14,9 @@ const App: React.FC = () => {
     const Store = useContext(ProductStoreState);
     return (
         <Router>
-            <div className="bg-gray-50 min-h-screen">
+            <div className="bg-gray-100 ">
                 <Navbar></Navbar>
-                <div className="container mx-auto">
+                <div className="container mx-auto min-h-screen">
                     <Switch>
                         <Route exact path="/">
                             <Home></Home>
