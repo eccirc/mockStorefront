@@ -18,12 +18,6 @@ const ProductDetail: React.FC = () => {
 
     return (
         <div className="h-auto lg:h-screen mb-20 bg-white flex justify-start md:pt-20">
-            {/* <div className="w-screen h-screen fixed m-0 bg-gray-500 bg-opacity-40">
-                <div className="flex w-full h-full justify-center items-center">
-                    <div className="w-2/6 h-2/6 bg-white">A box</div>
-                </div>
-            </div> */}
-
             <div className="mx-auto pt-4 px-4 pb-16 grid grid-cols-1 md:grid-cols-2 gap-8">
                 <span>
                     <img
