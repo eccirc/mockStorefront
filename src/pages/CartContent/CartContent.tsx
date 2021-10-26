@@ -9,27 +9,39 @@ export interface sortedCart {
 
 const Cart: React.FC = () => {
     const store = useContext(ProductStoreState);
-    const { cart } = store;
+    const { itemised, cart } = store;
 
-    const countOccurrences = (arr: Product[], val: Product) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
+    // const countOccurrences = (arr: Product[], val: Product) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
 
-    const sortCart = () => {
-        const Cart: sortedCart[] = [];
-        const uniqueItems = Array.from(new Set(cart));
-        uniqueItems.forEach((product) => {
-            Cart.push({ item: product, quantity: countOccurrences(cart, product) });
-        });
-        return Cart;
-    };
-    const sorted = sortCart();
+    // const sortCart = () => {
+    //     const Cart: sortedCart[] = [];
+    //     const uniqueItems = Array.from(new Set(cart));
+    //     uniqueItems.forEach((product) => {
+    //         Cart.push({ item: product, quantity: countOccurrences(cart, product) });
+    //     });
+    //     return Cart;
+    //};
+    //const sorted = itemised;
 
-    console.log(sorted);
+    // console.log(sorted);
 
     return (
         <div className="w-full h-screen heading mx-auto bg-white grid grid-cols-1 md:grid-cols-2">
             <div className="p-8 h-full border-r">
-                {cart.length === 0 && <h1 className="text-4xl">Your cart is empty</h1>}
-                {cart.length > 0 && <h1 className="text-4xl">Your cart contains {store.cartSize} items</h1>}
+                {cart.length === 0 && <h1 className="text-2xl">Your cart is empty</h1>}
+                {cart.length > 0 && (
+                    <div>
+                        <h1 className="text-2xl mb-2">Your cart contains {store.cartSize} items</h1>
+                        {itemised.map((item, index) => (
+                            <span className="flex justify-between mb-2" key={index}>
+                                <p>
+                                    {item.item.itemName} x {item.quantity} £{item.item.itemPrice}
+                                </p>
+                                <p className="font-semibold">£{Number(item.item.itemPrice) * item.quantity}</p>
+                            </span>
+                        ))}
+                    </div>
+                )}
             </div>
             <div className="p-8">
                 <h2 className="text-3xl font-bold mb-4">Checkout Now</h2>

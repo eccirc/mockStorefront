@@ -2,22 +2,26 @@ import { createContext } from 'react';
 import { computed, makeObservable, observable, action, runInAction } from 'mobx';
 import { ProductService } from '../../types/ProductsService';
 import { Product } from '../../types/Product';
+import { ItemisedCart } from '../../types/SortedCart';
 
 class ProductStoreState {
     result: ProductService<Product[]> = { status: 'loading' };
     cart: Product[] = [];
     currentProduct: Product = { itemName: '', itemPrice: '', itemSrc: '', id: '' };
+    //itemised: ItemisedCart[] = [];
 
     constructor() {
         makeObservable(this, {
             result: observable,
             cart: observable,
             currentProduct: observable,
+            //itemised: observable,
             setCurrentProduct: action,
             addToCart: action,
             removeFromCart: action,
             cartSize: computed,
             cartTotal: computed,
+            itemised: computed,
         });
         runInAction(this.getProducts);
     }
@@ -42,6 +46,15 @@ class ProductStoreState {
             total = total + cast;
         }
         return total;
+    }
+    @computed get itemised() {
+        const countOccurrences = (arr: Product[], val: Product) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
+        const Cart: ItemisedCart[] = [];
+        const uniqueItems = Array.from(new Set(this.cart));
+        uniqueItems.forEach((product) => {
+            Cart.push({ item: product, quantity: countOccurrences(this.cart, product) });
+        });
+        return Cart;
     }
 
     @action setCurrentProduct = (index: string) => {

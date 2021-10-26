@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import { Product } from '../../types/Product';
-import { useParams } from 'react-router';
+//import { useParams } from 'react-router';
 import ProductStoreState from '../../components/storeApi/storeState';
 import { observer } from 'mobx-react-lite';
 
@@ -8,13 +7,6 @@ const ProductDetail: React.FC = () => {
     const store = useContext(ProductStoreState);
 
     const sizes = ['S', 'M', 'L', 'XL'];
-
-    type productParams = {
-        id: string;
-    };
-
-    const { id } = useParams<productParams>();
-    const cast: number = +id;
 
     return (
         <div className="h-auto lg:h-screen mb-20 bg-white flex justify-start md:pt-20">

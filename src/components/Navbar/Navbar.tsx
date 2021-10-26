@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CartLogo from '../../Logos/cart.png';
 import CartCount from './CartCount';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 import './menu.css';
 
 const Navbar: React.FC = () => {
@@ -59,7 +59,10 @@ const Navbar: React.FC = () => {
                 <ul className="sm:flex flex-row hidden">
                     {menuItems.map((item) => (
                         <li className=" mx-4" key={item.name}>
-                            {item.name}
+                            <Link to={item.link} onClick={() => menuShow(false)}>
+                                {' '}
+                                {item.name}
+                            </Link>
                         </li>
                     ))}
                 </ul>
