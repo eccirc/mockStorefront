@@ -35,7 +35,7 @@ const Cart: React.FC = () => {
                         {itemised.map((item, index) => (
                             <span className="flex justify-between mb-2" key={index}>
                                 <p>
-                                    {item.item.itemName} x {item.quantity} £{item.item.itemPrice}
+                                    {item.item.itemName} size {item.item.size} x {item.quantity} £{item.item.itemPrice}
                                 </p>
                                 <p className="font-semibold">£{Number(item.item.itemPrice) * item.quantity}</p>
                             </span>

@@ -2,11 +2,28 @@ import React, { useContext } from 'react';
 //import { useParams } from 'react-router';
 import ProductStoreState from '../../components/storeApi/storeState';
 import { observer } from 'mobx-react-lite';
+import { useState } from 'react';
+import { Product } from 'types/Product';
 
 const ProductDetail: React.FC = () => {
     const store = useContext(ProductStoreState);
 
-    const sizes = ['S', 'M', 'L', 'XL'];
+    const sizes = ['S', 'M', 'L'];
+
+    const [size, setSize] = useState('');
+    const [item, setItem] = useState<Product>(store.currentProduct);
+
+    const selectSize = (selected: React.ChangeEvent<HTMLSelectElement>) => {
+        const value = selected.target.value;
+        setSize(value);
+        // console.log(selected.target.value);
+    };
+    const pushToCart = () => {
+        setItem(store.currentProduct);
+        item.size = size;
+        console.log(item);
+        store.addToCart(item);
+    };
 
     return (
         <div className="h-auto lg:h-screen mb-20 bg-white flex justify-start md:pt-20">
@@ -30,15 +47,24 @@ const ProductDetail: React.FC = () => {
                         cliche pabst. Brooklyn tote bag post-ironic 8-bit kogi. Vinyl four loko cold-pressed, plaid
                         before they sold out artisan austin.
                     </p>
-                    <span className="flex my-4">
+                    <br />
+
+                    <select name="sizes" className="flex my-4" defaultValue="select a size" onChange={selectSize}>
+                        <option disabled value="select a size">
+                            select a size
+                        </option>
                         {sizes.map((item, index) => (
-                            <p className="rounded-md border p-2 w-10 text-center hover:bg-gray-500 text-xl" key={index}>
+                            <option
+                                className="rounded-md border p-2 w-10 text-center hover:bg-gray-500 text-xl"
+                                key={index}
+                                value={item}
+                            >
                                 {item}
-                            </p>
+                            </option>
                         ))}
-                    </span>
+                    </select>
                     <button
-                        onClick={() => store.addToCart(store.currentProduct)}
+                        onClick={() => pushToCart()}
                         className="rounded-md bg-yellow-600 text-center text-white w-full p-2 text-lg"
                     >
                         {store.cart.includes(store.currentProduct) ? 'Add another?' : 'Add to cart'}

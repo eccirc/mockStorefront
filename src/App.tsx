@@ -12,6 +12,7 @@ import { observer } from 'mobx-react-lite';
 
 const App: React.FC = () => {
     const Store = useContext(ProductStoreState);
+    // console.log(Store.images);
     return (
         <Router>
             <div className="bg-gray-100 ">

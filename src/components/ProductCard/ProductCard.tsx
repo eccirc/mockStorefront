@@ -5,6 +5,7 @@ import ProductStoreState from '../storeApi/storeState';
 
 const ProductCard: React.FC<Product> = ({ itemName, itemPrice, itemSrc, id = '0' }) => {
     const store = useContext(ProductStoreState);
+
     return (
         <Link
             onClick={() => store.setCurrentProduct(id)}

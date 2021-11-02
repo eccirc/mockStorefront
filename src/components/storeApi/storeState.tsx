@@ -7,18 +7,18 @@ import { ItemisedCart } from '../../types/SortedCart';
 class ProductStoreState {
     result: ProductService<Product[]> = { status: 'loading' };
     cart: Product[] = [];
-    currentProduct: Product = { itemName: '', itemPrice: '', itemSrc: '', id: '' };
-    //itemised: ItemisedCart[] = [];
+    currentProduct: Product = { itemName: '', itemPrice: '', itemSrc: '', id: '', size: '' };
+    images: string[] = [];
 
     constructor() {
         makeObservable(this, {
             result: observable,
             cart: observable,
             currentProduct: observable,
-            //itemised: observable,
             setCurrentProduct: action,
             addToCart: action,
             removeFromCart: action,
+            images: observable,
             cartSize: computed,
             cartTotal: computed,
             itemised: computed,
@@ -30,7 +30,12 @@ class ProductStoreState {
         const ApiAddr = 'https://610ab70252d56400176aff42.mockapi.io/store/products/products';
         fetch(ApiAddr)
             .then((response) => response.json())
-            .then((response) => (this.result = { status: 'loaded', payload: response }))
+            .then((response) => {
+                this.result = { status: 'loaded', payload: response };
+                this.result.payload.forEach((item) => {
+                    this.images.push(item.itemSrc);
+                });
+            })
             .catch((error) => (this.result = { status: 'error', error }));
 
         // console.log(this.result);
