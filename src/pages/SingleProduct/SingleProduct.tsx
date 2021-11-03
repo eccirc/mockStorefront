@@ -2,27 +2,18 @@ import React, { useContext } from 'react';
 //import { useParams } from 'react-router';
 import ProductStoreState from '../../components/storeApi/storeState';
 import { observer } from 'mobx-react-lite';
-import { useState } from 'react';
-import { Product } from 'types/Product';
 
 const ProductDetail: React.FC = () => {
     const store = useContext(ProductStoreState);
 
     const sizes = ['S', 'M', 'L'];
 
-    const [size, setSize] = useState('');
-    const [item, setItem] = useState<Product>(store.currentProduct);
-
     const selectSize = (selected: React.ChangeEvent<HTMLSelectElement>) => {
-        const value = selected.target.value;
-        setSize(value);
-        // console.log(selected.target.value);
+        // store.setSize(selected.target.value);
+        console.log(selected.target.value);
     };
     const pushToCart = () => {
-        setItem(store.currentProduct);
-        item.size = size;
-        console.log(item);
-        store.addToCart(item);
+        store.addToCart(store.currentProduct);
     };
 
     return (
@@ -65,7 +56,8 @@ const ProductDetail: React.FC = () => {
                     </select>
                     <button
                         onClick={() => pushToCart()}
-                        className="rounded-md bg-yellow-600 text-center text-white w-full p-2 text-lg"
+                        className={`rounded-md text-center text-white w-full p-2 text-lg 
+                        ${store.cart.includes(store.currentProduct) ? 'bg-green-600' : 'bg-yellow-600'}`}
                     >
                         {store.cart.includes(store.currentProduct) ? 'Add another?' : 'Add to cart'}
                     </button>

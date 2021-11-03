@@ -15,12 +15,12 @@ const Products: React.FC<Props> = ({ products, status }) => {
             )}
             {status === 'loaded' && (
                 <div className="w-full min-h-screen mx-auto bg-white grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-4 px-4 pb-16">
-                    {products.map((product) => (
+                    {products.map((product, index) => (
                         <ProductCard
                             key={product.id}
                             id={product.id}
                             itemName={product.itemName}
-                            itemSrc={product.itemSrc}
+                            itemSrc={`http://lorempixel.com/400/200/food/${index % 11}/`}
                             itemPrice={product.itemPrice}
                         ></ProductCard>
                     ))}

@@ -1,11 +1,11 @@
 import React from 'react';
 import './Home.css';
-import mainLogo from 'Logos/Wear(e)YourSelf-logos_white.png';
+import mainLogo from '../../Logos/foodTrans.png';
 
 const Home: React.FC = () => {
     return (
-        <div className=" flex items-start pt-20 h-screen bg-image">
-            <img className="object-contain w-full lg:w-2/3 mx-auto" src={mainLogo} alt="Logo" />
+        <div className="h-screen bg-image overflow-y-hidden overscroll-none">
+            <img className="object-contain w-full lg:w-2/3 mx-auto my-auto lg:-mt-24" src={mainLogo} alt="Logo" />
         </div>
     );
 };

@@ -8,7 +8,6 @@ class ProductStoreState {
     result: ProductService<Product[]> = { status: 'loading' };
     cart: Product[] = [];
     currentProduct: Product = { itemName: '', itemPrice: '', itemSrc: '', id: '', size: '' };
-    images: string[] = [];
 
     constructor() {
         makeObservable(this, {
@@ -16,9 +15,11 @@ class ProductStoreState {
             cart: observable,
             currentProduct: observable,
             setCurrentProduct: action,
+            setSize: action,
+            getProducts: action,
             addToCart: action,
             removeFromCart: action,
-            images: observable,
+            emptyCart: action,
             cartSize: computed,
             cartTotal: computed,
             itemised: computed,
@@ -26,19 +27,14 @@ class ProductStoreState {
         runInAction(this.getProducts);
     }
 
-    getProducts = () => {
+    @action getProducts = () => {
         const ApiAddr = 'https://610ab70252d56400176aff42.mockapi.io/store/products/products';
         fetch(ApiAddr)
             .then((response) => response.json())
             .then((response) => {
                 this.result = { status: 'loaded', payload: response };
-                this.result.payload.forEach((item) => {
-                    this.images.push(item.itemSrc);
-                });
             })
             .catch((error) => (this.result = { status: 'error', error }));
-
-        // console.log(this.result);
     };
 
     @computed get cartSize() {
@@ -66,8 +62,19 @@ class ProductStoreState {
         const castIndex: number = +index;
         if (this.result.status === 'loaded') {
             this.currentProduct = this.result.payload[castIndex - 1];
+            // const result = this.result.payload[castIndex - 1];
+            // this.currentProduct = {
+            //     itemName: result.itemName,
+            //     itemPrice: result.itemPrice,
+            //     itemSrc: result.itemSrc,
+            //     id: result.id,
+            //     size: '',
+            // };
             //console.log(this.currentProduct);
         }
+    };
+    @action setSize = (size: string) => {
+        this.currentProduct.size = size;
     };
 
     @action addToCart = (item: Product): void => {
@@ -79,6 +86,9 @@ class ProductStoreState {
         if (index >= 0) {
             this.cart.splice(index, 1);
         }
+    };
+    @action emptyCart = () => {
+        this.cart.splice(0, this.cart.length);
     };
 }
 

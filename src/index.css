@@ -8,3 +8,6 @@
 .heading {
     font-family: 'pt-mono';
 }
+body {
+    @apply text-gray-600
+}

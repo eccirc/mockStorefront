@@ -1,10 +1,10 @@
 import React from 'react';
-import mainLogo from '../../Logos/Wear(e)YourSelf-logos_black.png';
+import mainLogo from '../../Logos/foodLogo.jpeg';
 
 const About: React.FC = () => {
     return (
-        <div className="w-full  mx-auto bg-white heading pt-16 xl:pt-0 pb-24">
-            <img className="object-cover w-1/2 mx-auto" src={mainLogo} alt="Logo" />
+        <div className="w-full  mx-auto bg-white heading pt-16 xl:pt-10 pb-24">
+            <img className="object-cover w-1/3  mx-auto" src={mainLogo} alt="Logo" />
             <h2 className="text-4xl font-bold text-center p-8">Our Story</h2>
             <p className="text-center p-12">
                 I`m baby keffiyeh kitsch shaman, art party neutra vice kickstarter kombucha prism biodiesel pinterest

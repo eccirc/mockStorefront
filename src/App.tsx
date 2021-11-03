@@ -12,7 +12,6 @@ import { observer } from 'mobx-react-lite';
 
 const App: React.FC = () => {
     const Store = useContext(ProductStoreState);
-    // console.log(Store.images);
     return (
         <Router>
             <div className="bg-gray-100 ">
@@ -37,10 +36,9 @@ const App: React.FC = () => {
                     </Switch>
                 </div>
                 <aside className="heading w-full bg-white p-2 fixed border-t bottom-0">
-                    <div className="text-sm font-bold text-center flex flex-row justify-end  items-center">
-                        <p>W</p>
-                        <p className="font-normal mr-2">(E)</p>
-                        <p className="font-normal mr-2">2021</p>
+                    <div className="text-sm font-bold text-center flex flex-row justify-start items-center">
+                        <p className="font-normal">(EAT)</p>
+                        <p className="font-normal">2021</p>
                     </div>
                 </aside>
             </div>

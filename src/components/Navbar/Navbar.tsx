@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CartLogo from '../../Logos/cart.png';
+import foodLogo from '../../Logos/foodTrans.png';
+import menu from '../../Logos/menu-icon.png';
 import CartCount from './CartCount';
 import { CSSTransition } from 'react-transition-group';
 import './menu.css';
@@ -28,15 +30,16 @@ const Navbar: React.FC = () => {
     return (
         <div className="bg-white sticky top-0 z-50 w-full text-gray-800 heading border-b ">
             <div className="flex flex-row sm:p-6 justify-between text-xl items-center">
-                <span className="font-bold text-center sm:flex flex-row hidden">
-                    W<span className="font-normal">(E)</span>
-                </span>
-                <div className="text-center m-4 flex flex-row sm:hidden tracking-wide">
-                    <button onClick={() => menuShow(true)}>Menu</button>
+                <img src={foodLogo} alt="EAT" className="w-16 h-16" />
+
+                <div className="absolute text-center ml-16 m-4 flex flex-row sm:hidden tracking-wide">
+                    <button onClick={() => menuShow(true)}>
+                        <img src={menu} />
+                    </button>
 
                     <CSSTransition in={showMenu} unmountOnExit timeout={500} classNames="menu">
-                        <ul className="absolute bg-white w-2/5 h-72 border-r border-b -m-4">
-                            <li className="my-8">
+                        <ul className="absolute bg-white w-screen h-96 flex flex-col justify-around1 border-r border-b -ml-16 -m-4">
+                            <li className="my-6">
                                 <button onClick={() => menuShow(false)}>X</button>
                             </li>
 

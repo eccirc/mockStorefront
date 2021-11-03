@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import ProductStoreState from '../../components/storeApi/storeState';
 import { Product } from '../../types/Product';
+import { observer } from 'mobx-react-lite';
 
 export interface sortedCart {
     item: Product;
@@ -10,20 +11,6 @@ export interface sortedCart {
 const Cart: React.FC = () => {
     const store = useContext(ProductStoreState);
     const { itemised, cart } = store;
-
-    // const countOccurrences = (arr: Product[], val: Product) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
-
-    // const sortCart = () => {
-    //     const Cart: sortedCart[] = [];
-    //     const uniqueItems = Array.from(new Set(cart));
-    //     uniqueItems.forEach((product) => {
-    //         Cart.push({ item: product, quantity: countOccurrences(cart, product) });
-    //     });
-    //     return Cart;
-    //};
-    //const sorted = itemised;
-
-    // console.log(sorted);
 
     return (
         <div className="w-full h-screen heading mx-auto bg-white grid grid-cols-1 md:grid-cols-2">
@@ -40,6 +27,9 @@ const Cart: React.FC = () => {
                                 <p className="font-semibold">£{Number(item.item.itemPrice) * item.quantity}</p>
                             </span>
                         ))}
+                        <button className="border-2 p-2 mt-10" onClick={store.emptyCart}>
+                            remove all
+                        </button>
                     </div>
                 )}
             </div>
@@ -54,4 +44,4 @@ const Cart: React.FC = () => {
     );
 };
 
-export default Cart;
+export default observer(Cart);
