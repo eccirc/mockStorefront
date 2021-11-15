@@ -1,13 +1,7 @@
 import React, { useContext } from 'react';
 import ProductStoreState from '../../components/storeApi/storeState';
-import { Product } from '../../types/Product';
 import { observer } from 'mobx-react-lite';
 import { Link } from 'react-router-dom';
-
-export interface sortedCart {
-    item: Product;
-    quantity: number;
-}
 
 const Cart: React.FC = () => {
     const store = useContext(ProductStoreState);

@@ -7,6 +7,7 @@ import Products from './pages/Products/Products';
 import About from './pages/About/About';
 import ProductDetail from './pages/SingleProduct/SingleProduct';
 import Cart from './pages/CartContent/CartContent';
+import Checkout from 'pages/Checkout/Checkout';
 import ProductStoreState from './components/storeApi/storeState';
 import { observer } from 'mobx-react-lite';
 
@@ -32,6 +33,9 @@ const App: React.FC = () => {
                         <Route path="/SingleProduct/:id">{Store.result.status === 'loaded' && <ProductDetail />}</Route>
                         <Route path="/Cart">
                             <Cart />
+                        </Route>
+                        <Route path="/Checkout">
+                            <Checkout />
                         </Route>
                     </Switch>
                 </div>
