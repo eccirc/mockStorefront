@@ -6,7 +6,7 @@ export const initialAddressFormValues: AddressFormValues = {
     addressLine1: '',
     addressLine2: '',
     city: '',
-    provinceState: '',
+    county: '',
     country: '',
-    zipPostalCode: '',
+    postalCode: '',
 };
