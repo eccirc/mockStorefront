@@ -20,7 +20,7 @@ const Products: React.FC<Props> = ({ products, status }) => {
                             key={product.id}
                             id={product.id}
                             itemName={product.itemName}
-                            itemSrc={`http://lorempixel.com/400/200/food/${index % 11}/`}
+                            itemSrc={`https://foodish-api.herokuapp.com/images/pasta/pasta${index + 1}.jpg`}
                             itemPrice={product.itemPrice}
                         ></ProductCard>
                     ))}
