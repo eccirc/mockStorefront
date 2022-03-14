@@ -1,46 +1,40 @@
-# Getting Started with Create React App
+# Mock Storefront
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Author** David Williams
 
-## Available Scripts
+**Date** August 2021
 
-In the project directory, you can run:
+**Last Updated** Febuary 2022
 
-### `yarn start`
+## About
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The aim of this project was to learn the basics of Typescript and state management in React using MobX. I wanted to build an app of medium complexity which utilizes a mock API to call on for fetching data, and using a shopping/ store paradigm seemed like a great way to do this. I also had some fun designing and making logos for this dummy company.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**To Do**
 
-### `yarn test`
+-   Checkout form and validation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies
 
-### `yarn build`
+**HTML**, **Tailwind CSS**, **Javascript**, **React**, **MobX**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Credits / Attributions
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-   (mockend)[https://mockapi.io/] for mocking product data
+-   (foodish)[https://foodish-api.herokuapp.com/] for placeholder food images
+-   The (dev.to)[https://dev.to/] community for all of the useful articles and tips!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Screenshots
 
-### `yarn eject`
+### Mobile
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![mock-storefont-screenshot-mobile](./src/assets/screenshot_mobile_1.png)
+![mock-storefont-screenshot-mobile](./src/assets/screenshot_mobile_2.png)
+![mock-storefont-screenshot-mobile](./src/assets/screenshot_mobile_3.png)
+![mock-storefont-screenshot-mobile](./src/assets/screenshot_mobile_4.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Desktop
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+![mock-storefont-screenshot-desktop](./src/assets/screenshot_1.png)
+![mock-storefont-screenshot-desktop](./src/assets/screenshot_2.png)
+![mock-storefont-screenshot-desktop](./src/assets/screenshot_3.png)
