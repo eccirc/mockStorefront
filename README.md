@@ -20,9 +20,9 @@ The aim of this project was to learn the basics of Typescript and state manageme
 
 ## Credits / Attributions
 
--   (mockend)[https://mockapi.io/] for mocking product data
--   (foodish)[https://foodish-api.herokuapp.com/] for placeholder food images
--   The (dev.to)[https://dev.to/] community for all of the useful articles and tips!
+-   [mockend](https://mockapi.io/) for mocking product data
+-   [foodish](https://foodish-api.herokuapp.com/) for placeholder food images
+-   The [dev.to](https://dev.to/) community for all of the useful articles and tips!
 
 ## Screenshots
 
